@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d2e1a9e-5fd8-48c9-9ece-6de304e43af5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/SPScenario.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dragDrop.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/gooflow_btn_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/object.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/subject.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/tool.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/imgSrc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/imgSrc2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/jquery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/style/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scenarioDemo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +26,7 @@
       <file leaf-file-name="dragDrop.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tmp/dragDrop.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
+            <state relative-caret-position="-10">
               <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
               <folding />
             </state>
@@ -149,15 +137,15 @@
       <option name="presentableId" value="Default" />
       <updated>1471590361637</updated>
       <workItem from="1471590363096" duration="17000" />
-      <workItem from="1471593727408" duration="854000" />
+      <workItem from="1471593727408" duration="1207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="871000" />
+    <option name="totallyTimeSpent" value="1224000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="2578" height="1408" extended-state="6" />
+    <frame x="-9" y="-9" width="2578" height="1408" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24990131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -212,7 +200,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tmp/dragDrop.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
+        <state relative-caret-position="-10">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
         </state>
