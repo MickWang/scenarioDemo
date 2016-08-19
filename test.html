@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+#dst {
+    border:solid 1px black;
+    width:800px;
+    height:400px;
+}
+    </style>
+</head>
+<body>
+<article>
+    <header>
+        <h1>Canvas drag&drop</h1>
+    </header>
+    <nav>
+        <img src="imgSrc.png" id="imgSrc" alt="" draggable="true" ondragstart="drag(event)">
+
+    </nav>
+    <section>
+        <article>
+            <h2>Canvas1</h2>
+            <div id="dst" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <canvas id='image_dst' width='420' height='300'></canvas>
+            </div><br />
+        </article>
+        <article>
+            <h2>Canvas2</h2>
+
+        </article>
+    </section>
+</article>
+</body>
+</html>
+<script type="text/javascript">
+    var canvasDst = document.getElementById('image_dst');
+    var contextDst = canvasDst.getContext('2d');
+    var canvas = contextDst.canvas;
+    var dragok = false;
+    var WIDTH=800, HEIGHT=400;
+
+    var image=document.getElementById('imgSrc');
+    var x=0,y=0;
+    var width =124,height = 124;//图像宽高
+    function allowDrop(ev){
+        ev.preventDefault();
+    }
+    function drag(ev){
+        ev.dataTransfer.setData("Text", ev.target.id);
+
+    }
+    function drop(ev){
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+//        ev.target.appendChild(document.getElementById(data));
+
+        var image=document.getElementById(data);
+        x = ev.pageX - 62-canvas.offsetLeft, y = ev.pageY - 62 -canvas.offsetTop;
+        if (x<0) x=0;
+        if(y<0) y=0;
+            contextDst.drawImage(image,x,y);
+        setInterval(draw, 10);
+    }
+
+    contextDst.canvas.onmousedown = myDown;
+    contextDst.canvas.onmouseup = myUp;
+
+    function myMove(e){
+        if (dragok){
+            x = e.pageX - canvas.offsetLeft;
+            y = e.pageY - canvas.offsetTop;
+        }
+    }
+
+    function myDown(e){
+        if (e.pageX < x + width/2 + canvas.offsetLeft && e.pageX > x  - width/2+
+                canvas.offsetLeft && e.pageY < y + height/2 + canvas.offsetTop &&
+                e.pageY > y - height/2 + canvas.offsetTop){
+            x = e.pageX - canvas.offsetLeft;
+            y = e.pageY - canvas.offsetTop;
+            dragok = true;
+            canvas.onmousemove = myMove;
+        }
+    }
+
+    function myUp(){
+        dragok = false;
+        canvas.onmousemove = null;
+    }
+
+    function clear() {
+        contextDst.clearRect(0, 0, WIDTH,HEIGHT);
+    }
+    function draw() {
+        clear();
+        contextDst.drawImage(image,x-62,y-62);
+    }
+
+
+
+</script>
