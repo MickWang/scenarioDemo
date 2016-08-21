@@ -81,3 +81,65 @@ body {
     border-bottom: 0;
   }
 }
+
+.scenarioBox{
+  border-radius:10px;
+  width:720px;
+  height:500px;
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-top:-200px;
+  margin-left:-360px;
+  background-color: #ffffff;
+  padding:10px 35px;
+  z-index:90;
+}
+.scenarioBoxBg{
+  opacity:0.8;
+  background-color:#f4f4f4;
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  z-index:80;
+}
+
+.workflow_item{
+  cursor:pointer;
+  position:absolute;background:#DDE7F4 url(../images/gooflow_btn_bg.png) repeat-x 0px -72px;border:#7DA2CE solid 1px;
+  -moz-border-radius:3px; -webkit-border-radius:3px;border-radius:3px;color:#15428B;background-color:#C1DCFC;
+  box-shadow:1px 1px 2px rgba(148,170,194,2);-webkit-box-shadow:1px 1px 2px rgba(148,170,194,2);-moz-box-shadow:1px 1px 2px rgba(148,170,194,2);
+}
+.ico_tool {
+  background:url(../images/tool.png) no-repeat;
+}
+.ico_subject {
+  background:url(../images/subject.png) no-repeat;
+}
+.ico_object {
+  background:url(../images/object.png) no-repeat;
+}
+.ico_resource {
+  background:url(../images/resource.png) no-repeat;
+}
+b {
+  display: block;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+}
+.buttons {
+  position: absolute;
+  top: 460px;
+  left: 550px;
+}
+.configBox {
+  position: absolute;
+  top: 200px;
+  left:30px;
+  border: 1px solid;
+  width: 660px;
+  height:180px;
+}

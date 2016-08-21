@@ -1,9 +1,12 @@
 <div class="jumbotron">
   <h2>选择业务类型</h2>
-  <p class="businessType">
-
+  <p>
+    <select class="form-control" ui-select2 ng-model="selectedBizType" data-placeholder="选择业务类型" multiple="multiple">
+      <option value=""></option>
+      <option ng-repeat="type in bizType" value="{{type.value}}">{{type.text}}</option>
+    </select>
   </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+  <p><a class="btn btn-lg btn-success" ui-sref="scenarioList">下一步<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
 <div class="row marketing">
@@ -20,13 +23,7 @@
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
 </div>
-<script>
-  var data = [{ id: 0, text: 'enhancement' }, { id: 1, text: 'bug' }, { id: 2, text: 'duplicate' }, { id: 3, text: 'invalid' }, { id: 4, text: 'wontfix' }];
 
-  $(".businessType").select2({
-    data :data,
-    tags: true,
-    tokenSeparators: [',', ' ']
-  })
-</script>
+
+
 

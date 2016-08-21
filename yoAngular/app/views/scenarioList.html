@@ -1,0 +1,80 @@
+<h1>可用场景</h1>
+<table class="table table-hover">
+  <thread>
+    <tr>
+      <th>序号</th>
+      <th>名称</th>
+      <th>选中状态</th>
+      <th>配置状态</th>
+    </tr>
+    <tbody>
+    <tr ng-repeat="scenario in scenarioList">
+      <td>{{$index+1}}</td>
+      <td ng-click="showScenarioBox()">{{scenario.name}}</td>
+      <td><input type="checkbox" ng-checked="scenario.isSelected" ng-click="selectStatus(scenario)"/></td>
+      <td>{{scenario.isConfig ? '已配置' : '未配置'}}</td>
+    </tr>
+    </tbody>
+  </thread>
+</table>
+<p><a class="btn btn-success pull-right" ui-sref="scenarioList" ng-click="save()">保存<span class="glyphicon glyphicon-ok"></span></a></p>
+
+<div class="scenarioBoxBg" ng-show="showBox">
+</div>
+<div class="scenarioBox" ng-show="showBox">
+  <div class="outerBox">
+    <div class="workflow_item" style="top:30px;left:30px" ng-click="config()">
+      <table cellspacing="1" style="width:150px;height:40px;">
+        <tbody><tr><td class="ico"><b class="ico_subject"></b></td><td>学生</td></tr>
+        </tbody></table>
+    </div>
+    <div class="workflow_item" style="top:30px;left:280px">
+      <table cellspacing="1" style="width:150px;height:40px;">
+        <tbody><tr><td class="ico"><b class="ico_tool"></b></td><td>订购课程</td></tr>
+        </tbody></table>
+      </div>
+    <div class="workflow_item" style="top:110px;left:280px">
+      <table cellspacing="1" style="width:150px;height:40px;">
+        <tbody><tr><td class="ico"><b class="ico_resource"></b></td><td>资源</td></tr>
+        </tbody></table>
+    </div>
+    <div class="workflow_item" style="top:30px;left:530px">
+      <table cellspacing="1" style="width:150px;height:40px;">
+        <tbody><tr><td class="ico"><b class="ico_object"></b></td><td>老师</td></tr>
+        </tbody></table>
+    </div>
+    <div style="position:absolute;left:180px;top:30px">
+      <svg width="100px" height="40px">
+        <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
+          <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
+        </marker>
+        </defs>
+        <g from="0,20" to="100,20"><path stroke-width="1.4" fill="none" stroke="#5068AE" d="M 0 20 L 100 20" pointer-events="stroke"></path><path d="M 0 20 L 100 20" stroke-width="1.4" stroke-linecap="round" fill="none"></path></g>
+      </svg>
+    </div>
+    <div style="position:absolute;left:430px;top:30px">
+      <svg width="100px" height="40px">
+        <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
+          <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
+        </marker> </defs>
+        <g from="0,20" to="100,20"><path stroke-width="1.4" fill="none" stroke="#5068AE" d="M 0 20 L 100 20" pointer-events="stroke"></path><path d="M 0 20 L 100 20" stroke-width="1.4" stroke-linecap="round" fill="none"></path></g>
+      </svg>
+    </div>
+    <div style="position:absolute;left:280px;top:70px">
+      <svg width="150px" height="40px">
+        <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
+          <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
+        </marker> </defs>
+        <g ><path stroke-width="1.4" fill="none" stroke="#5068AE" d="M 75 0 L 75 40" pointer-events="stroke"></path>
+          </g>
+      </svg>
+    </div>
+  </div>
+<div class="configBox">
+
+</div>
+  <div class="buttons form-group">
+    <a class="btn btn-success pull-right" ng-click="saveScenarioConf()">保存配置<span class="glyphicon glyphicon-ok cursor"></span></a>
+    <a class="btn btn-default pull-right" ng-click="closeScenarioBox()">关闭<span class="glyphicon glyphicon-remove cursor"></span></a>
+  </div>
+</div>
