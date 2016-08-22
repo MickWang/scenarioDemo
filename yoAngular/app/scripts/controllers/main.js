@@ -9,11 +9,28 @@
  */
 angular.module('yoAngularApp')
   .controller('MainCtrl', ['$scope','$state',function ($scope,$state) {
-    $scope.selectedBizType = [];
     $scope.select2Options = {
       'multiple': true,
-      'simple_tags': true
-    };
+      'simple_tags': true,
+      /*ajax: {
+        url: "data.json",
+        dataType: 'json',
+        data: function (term, page) {
+          return {
+            q: term, // search term
+            page_limit: 10,
+          };
+        },
+        results: function (data, page) {
+          return {results: data};
+        }
+      },
+      formatResult: function(object, container, query) {
+        return object.name;
+      }*/
+    }
+    $scope.selectedBizType = [];
+    $scope.selectType = [];
     $scope.bizType = [
       {value:'1', text:'教育'},
       {value:'2', text:'电商'},

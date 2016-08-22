@@ -1,0 +1,26 @@
+angular.module('yoAngular').factory('postData','$q' ['$http', function ($http,$q) {
+  return {
+    postService:function(url,data){
+
+      var transFunc = function (data) {
+          return $.param(data);
+        },
+        postCfg = {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            // 'Authorization' :'Bearer '+localStorageService.get('accessToken'),
+            // 'X-GTEDX-Integrity':'GSign '+localStorageService.get('accessToken'),
+          },
+          transformRequest: transFunc
+        };
+      var delay=$q.defer();
+      $http.post(url,data,postCfg).success(function (res) {
+        delay.resolve(res);
+      }).error(function (res) {
+
+        delay.reject(res);
+      });
+      return delay.promise;
+    }
+  }
+}])

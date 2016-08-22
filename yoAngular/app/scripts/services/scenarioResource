@@ -1,0 +1,3 @@
+angular.module('yoAngularApp').factory('scenarioResource', ['$resource', function($resource){
+  return $resource('/api/scenarios/:id', {id:'@id'});
+}])

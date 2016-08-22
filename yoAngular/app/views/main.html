@@ -1,28 +1,16 @@
 <div class="jumbotron">
   <h2>选择业务类型</h2>
-  <p>
-    <select class="form-control" ui-select2 ng-model="selectedBizType" data-placeholder="选择业务类型" multiple="multiple">
+<div class="form-group">
+    <select class="select2 form-control" style="padding:0px 0px !important;" ui-select2="select2Options" ng-model="selectedBizType" data-placeholder="选择业务类型" multiple="multiple">
       <option value=""></option>
       <option ng-repeat="type in bizType" value="{{type.value}}">{{type.text}}</option>
     </select>
-  </p>
+  <!--<input class="select2" type="text" ui-select2="select2Options" ng-model="selectType" style="width:400px;">-->
+</div>
   <p><a class="btn btn-lg btn-success" ui-sref="scenarioList">下一步<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
 
 
 

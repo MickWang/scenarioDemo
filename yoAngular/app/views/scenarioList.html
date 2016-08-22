@@ -10,7 +10,7 @@
     <tbody>
     <tr ng-repeat="scenario in scenarioList">
       <td>{{$index+1}}</td>
-      <td ng-click="showScenarioBox()">{{scenario.name}}</td>
+      <td class="showScenarioBox" ng-click="showScenarioBox(scenario.id)">{{scenario.name}}</td>
       <td><input type="checkbox" ng-checked="scenario.isSelected" ng-click="selectStatus(scenario)"/></td>
       <td>{{scenario.isConfig ? '已配置' : '未配置'}}</td>
     </tr>
@@ -23,27 +23,27 @@
 </div>
 <div class="scenarioBox" ng-show="showBox">
   <div class="outerBox">
-    <div class="workflow_item" style="top:30px;left:30px" ng-click="config()">
+    <div class="workflow_item" style="top:30px;left:30px" ng-click="config(scenarioToConfig.subjectObj)" ng-show="scenarioToConfig.subjectObj.name">
       <table cellspacing="1" style="width:150px;height:40px;">
-        <tbody><tr><td class="ico"><b class="ico_subject"></b></td><td>学生</td></tr>
+        <tbody><tr><td class="ico"><b class="ico_subject"></b></td><td>{{scenarioToConfig.subjectObj.name}}</td></tr>
         </tbody></table>
     </div>
-    <div class="workflow_item" style="top:30px;left:280px">
+    <div class="workflow_item" style="top:30px;left:280px" ng-click="config(scenarioToConfig.scenarioObj)" ng-show="scenarioToConfig.scenarioObj.name">
       <table cellspacing="1" style="width:150px;height:40px;">
-        <tbody><tr><td class="ico"><b class="ico_tool"></b></td><td>订购课程</td></tr>
+        <tbody><tr><td class="ico"><b class="ico_tool"></b></td><td>{{scenarioToConfig.scenarioObj.name}}</td></tr>
         </tbody></table>
       </div>
-    <div class="workflow_item" style="top:110px;left:280px">
+    <div class="workflow_item" style="top:110px;left:280px" ng-click="config(scenarioToConfig.resourceObj)" ng-show="scenarioToConfig.resourceObj.length>0">
       <table cellspacing="1" style="width:150px;height:40px;">
         <tbody><tr><td class="ico"><b class="ico_resource"></b></td><td>资源</td></tr>
         </tbody></table>
     </div>
-    <div class="workflow_item" style="top:30px;left:530px">
+    <div class="workflow_item" style="top:30px;left:530px" ng-click="config(scenarioToConfig.objectObj)" ng-show="scenarioToConfig.objectObj.name">
       <table cellspacing="1" style="width:150px;height:40px;">
-        <tbody><tr><td class="ico"><b class="ico_object"></b></td><td>老师</td></tr>
+        <tbody><tr><td class="ico"><b class="ico_object"></b></td><td>{{scenarioToConfig.objectObj.name}}</td></tr>
         </tbody></table>
     </div>
-    <div style="position:absolute;left:180px;top:30px">
+    <div style="position:absolute;left:180px;top:30px" ng-show="scenarioToConfig.subjectObj.name">
       <svg width="100px" height="40px">
         <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
           <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
@@ -52,7 +52,7 @@
         <g from="0,20" to="100,20"><path stroke-width="1.4" fill="none" stroke="#5068AE" d="M 0 20 L 100 20" pointer-events="stroke"></path><path d="M 0 20 L 100 20" stroke-width="1.4" stroke-linecap="round" fill="none"></path></g>
       </svg>
     </div>
-    <div style="position:absolute;left:430px;top:30px">
+    <div style="position:absolute;left:430px;top:30px" ng-show="scenarioToConfig.objectObj.name">
       <svg width="100px" height="40px">
         <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
           <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
@@ -60,7 +60,7 @@
         <g from="0,20" to="100,20"><path stroke-width="1.4" fill="none" stroke="#5068AE" d="M 0 20 L 100 20" pointer-events="stroke"></path><path d="M 0 20 L 100 20" stroke-width="1.4" stroke-linecap="round" fill="none"></path></g>
       </svg>
     </div>
-    <div style="position:absolute;left:280px;top:70px">
+    <div style="position:absolute;left:280px;top:70px" ng-show="scenarioToConfig.resourceObj.length>0">
       <svg width="150px" height="40px">
         <defs><marker id="markerArrow" markerwidth="13" markerheight="13" refx="2" refy="6" orient="auto">
           <path d="M 0 20 L 100 20 " style="fill: #000000;"></path>
@@ -70,8 +70,9 @@
       </svg>
     </div>
   </div>
-<div class="configBox">
-
+  <p class="scenarioDescription">场景描述: {{scenarioToConfig.name}}</p>
+<div class="configBox" ng-show="itemToConfig">
+<p>{{itemToConfig.name}}配置</p>
 </div>
   <div class="buttons form-group">
     <a class="btn btn-success pull-right" ng-click="saveScenarioConf()">保存配置<span class="glyphicon glyphicon-ok cursor"></span></a>

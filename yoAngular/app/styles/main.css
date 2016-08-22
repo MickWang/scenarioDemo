@@ -88,12 +88,16 @@ body {
   height:500px;
   position:absolute;
   left:50%;
-  top:50%;
-  margin-top:-200px;
+  top:30%;
   margin-left:-360px;
   background-color: #ffffff;
   padding:10px 35px;
   z-index:90;
+}
+.showScenarioBox:hover {
+  background-color: gray;
+  color: white;
+  cursor:pointer;
 }
 .scenarioBoxBg{
   opacity:0.8;
@@ -137,9 +141,16 @@ b {
 }
 .configBox {
   position: absolute;
-  top: 200px;
+  top: 210px;
   left:30px;
   border: 1px solid;
   width: 660px;
   height:180px;
+}
+.scenarioDescription{
+  position: absolute;
+  top: 180px;
+  left:30px;
+  width: 660px;
+
 }
