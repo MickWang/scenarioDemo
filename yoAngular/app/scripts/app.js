@@ -33,4 +33,14 @@ angular
       templateUrl : 'views/scenarioList.html',
       controller : 'scenarioListCtrl'
     })
+      .state('workflowList',{
+        url : '/workflowList',
+        templateUrl : 'views/workflowList.html',
+        controller : 'workflowCtrl'
+      })
+      .state('editWorkflow', {
+        url : '/workflow/:id',
+        templateUrl : 'views/editWorkflow.html',
+        controller : 'editWorkflowCtrl'
+      })
   });

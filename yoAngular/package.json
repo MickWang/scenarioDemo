@@ -2,6 +2,8 @@
   "name": "yoangular",
   "private": true,
   "devDependencies": {
+    "express": "^4.13.1",
+    "mongoose": "^4.0.6",
     "autoprefixer-core": "^5.2.1",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
