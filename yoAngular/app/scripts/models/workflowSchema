@@ -1,0 +1,31 @@
+var mongoose = require('mongoose');
+
+var Node = new mongoose.Schema({
+  id:String,
+  name:String,
+  left:Number,
+  top:Number,
+  type:String
+});
+
+var Line = new mongoose.Schema({
+  id : String,
+  type:String,
+  from:String,
+  to:String,
+
+})
+
+var Workflow = new mongoose.Schema({
+  title : String,
+  bizType : String,
+  nodes : [Node],
+  lines : [Line],
+  created: {
+    type: Date,
+    default: Date.now
+  },
+})
+mongoose.model('Node', Node);
+mongoose.model('Line', Line);
+mongoose.model('Workflow',Workflow);

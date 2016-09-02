@@ -22,16 +22,16 @@
         <th>操作</th>
       </tr>
       <tbody>
-      <tr ng-repeat="scenario in scenarioList">
+      <tr ng-repeat="scenario in scenarios" ng-show="scenarios.length>0">
         <td>{{$index+1}}</td>
-        <td class="showScenarioBox" ng-click="showScenarioBox(scenario.id)">{{scenario.name}}</td>
-        <td><input type="checkbox" ng-checked="scenario.isSelected" ng-click="selectStatus(scenario)"/></td>
-        <td>{{scenario.isConfig ? '已配置' : '未配置'}}</td>
+        <td class="showScenarioBox" ui-sref="editWorkflow({id:scenario._id})">{{scenario.title}}</td>
+        <td>{{scenario.bizType}}</td>
+        <td><a class="btn btn-sm btn-danger"  ng-click="remove(scenario._id)">删除<span class="glyphicon glyphicon-remove"></span></a></td>
       </tr>
       </tbody>
     </thread>
   </table>
-  <p><a class="btn btn-success pull-right"  ng-click="save()">保存<span class="glyphicon glyphicon-ok"></span></a></p>
-  <p><a class="btn btn-info pull-right"  ui-sref="editWorkflow">新增<span class="glyphicon glyphicon-plus"></span></a></p>
+
+  <p><a class="btn btn-info pull-right"  ui-sref="editWorkflow({id:null})">新增<span class="glyphicon glyphicon-plus"></span></a></p>
 
 </div>

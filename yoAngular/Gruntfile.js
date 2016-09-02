@@ -220,8 +220,12 @@ module.exports = function (grunt) {
             }
           }
       }
-    }, 
-
+    },
+    nodemon: {
+      dev: {
+        script: 'server.js',
+      }
+    },
     // Renames files for browser caching purposes
     filerev: {
       dist: {
@@ -404,6 +408,7 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
+      default : ['nodemon', 'watch'],
       server: [
         'copy:styles'
       ],

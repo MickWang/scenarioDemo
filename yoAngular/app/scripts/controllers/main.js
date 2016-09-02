@@ -8,39 +8,33 @@
  * Controller of the yoAngularApp
  */
 angular.module('yoAngularApp')
-  .controller('MainCtrl', ['$scope','$state',function ($scope,$state) {
-    $scope.select2Options = {
-      'multiple': true,
-      'simple_tags': true,
-      /*ajax: {
-        url: "data.json",
-        dataType: 'json',
-        data: function (term, page) {
-          return {
-            q: term, // search term
-            page_limit: 10,
-          };
-        },
-        results: function (data, page) {
-          return {results: data};
-        }
-      },
-      formatResult: function(object, container, query) {
-        return object.name;
-      }*/
-    }
-    $scope.selectedBizType = [];
-    $scope.selectType = [];
-    $scope.bizType = [
-      {value:'1', text:'教育'},
-      {value:'2', text:'电商'},
-      {value:'3', text:'艺术'},
-      {value:'4', text:'音乐'},
-      {value:'5', text:'家教'},
-      {value:'6', text:'餐饮'},
-      {value:'7', text:'咖啡'}
+  .controller('MainCtrl', ['$scope','$state','$http',function ($scope,$state,$http) {
 
+    $scope.selectedBizType = [];
+    $scope.availableTypes = [{value:'4', text:'音乐'},
+      {value:'5', text:'家教'},];
+
+    $scope.bizTypes = [
+      {value:'1', text:'教育'},
+      {value:'2', text:'电商'}
     ];
+    $scope.funcAsync = function (query) {
+
+      console.log(query);
+      if(query != '') {
+        $http.get('/api/queryScenario/',{params:{query:query}}).then(
+          function (response) {
+            $scope.availableTypes = response.data.data;
+            console.log(response)
+          },
+          function () {
+            console.log('ERROR!!!');
+          }
+        );
+      }
+
+    };
+
 
     $scope.selectBizType = function () {
       //call service to get scenario list than render page

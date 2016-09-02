@@ -34,12 +34,18 @@
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
     "phantomjs-prebuilt": "^2.1.12",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "grunt-nodemon": "^0.4.2"
   },
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js"
+  },
+  "dependencies": {
+    "angular-ui-select": "^0.12.100",
+    "body-parser": "^1.15.2",
+    "nodemon": "^1.10.2"
   }
 }

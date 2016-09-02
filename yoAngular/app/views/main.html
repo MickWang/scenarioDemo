@@ -1,11 +1,12 @@
 <div class="jumbotron">
   <h2>选择业务类型</h2>
 <div class="form-group">
-    <select class="select2 form-control" style="padding:0px 0px !important;" ui-select2="select2Options" ng-model="selectedBizType" data-placeholder="选择业务类型" multiple="multiple">
-      <option value=""></option>
-      <option ng-repeat="type in bizType" value="{{type.value}}">{{type.text}}</option>
-    </select>
-  <!--<input class="select2" type="text" ui-select2="select2Options" ng-model="selectType" style="width:400px;">-->
+  <ui-select multiple ng-model="bizTypes" theme="select2"  style="width: 500px;">
+    <ui-select-match placeholder="Select biz type...">{{$item.text}}</ui-select-match>
+    <ui-select-choices refresh="funcAsync($select.search)" refresh-delay="100" repeat="type in availableTypes | filter:$select.search">{{type.text}}
+    </ui-select-choices>
+  </ui-select>
+
 </div>
   <p><a class="btn btn-lg btn-success" ui-sref="scenarioList">下一步<span class="glyphicon glyphicon-ok"></span></a></p>
 </div>
